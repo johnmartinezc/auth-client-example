@@ -10,10 +10,13 @@ export const AuthProvider = ({ children }) => {
 	const [userEmail, setUserEmail] = useState("")
   const [isAuthLoading, setIsAuthLoading] = useState(false);
 
+  //didcomponentupdate
   useEffect(() => {
 
     //get session data if session is still active from the browser
     const userData = getLSUserData();
+
+    //if isAuthLoading changes, set the setUserToken and setUserEmail
 		if (userData && userData.token) {
 			setUserToken(userData.token);
 		}
@@ -67,9 +70,11 @@ export const AuthProvider = ({ children }) => {
     }),
     [userToken]
   );
+  // children in this case refers to <App> #SEE index.js
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
+//this function makes the context of Auth accessible to other compoents 
 export const useAuth = () => {
   return useContext(AuthContext);
 };

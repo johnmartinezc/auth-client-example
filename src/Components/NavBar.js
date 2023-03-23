@@ -4,6 +4,9 @@ import { useAuth } from "../Hooks/Auth";
 
 const NavBar = () => {
 	//we need this in the navbar, so that we can log out
+	//instead of passing logout through props,
+	// we are importing the useAuth which is Auth's 
+	// contxt which allows us to call logout()
 	const auth = useAuth();
 
 	return (

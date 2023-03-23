@@ -6,6 +6,9 @@ const RegistrationPage = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [registerMessage, setRegisterMessage] = useState("");
+
+  //we are accessing the authentication context from within our 
+  // component 
   const auth = useAuth();
   const navigate = useNavigate();
   return (
