@@ -41,7 +41,7 @@ const LoginPage = (props) => {
           const loginResult = await auth.login(email, password);
 					console.log("button onclick loginResult: ", loginResult)
 					if (loginResult.success) {
-						navigate("/HomePage")
+						navigate("/")
 					}
           if (!loginResult.success) {
             setLoginMessage(loginResult.message)
