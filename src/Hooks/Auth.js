@@ -7,16 +7,15 @@ const AuthContext = createContext();
 */
 export const AuthProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(null);
-	const [userEmail, setUserEmail] = useState("")
+  const [userEmail, setUserEmail] = useState("")
   const [isAuthLoading, setIsAuthLoading] = useState(false);
 
-  //didcomponentupdate
+  //Did component update
   useEffect(() => {
 
     //get session data if session is still active from the browser
     const userData = getLSUserData();
-
-    //if isAuthLoading changes, set the setUserToken and setUserEmail
+    //If isAuthLoading changes, set the userToken and userEmail
 		if (userData && userData.token) {
 			setUserToken(userData.token);
 		}
@@ -55,6 +54,8 @@ export const AuthProvider = ({ children }) => {
     setIsAuthLoading(false);
   };
 
+
+
   /*  
     https://reactjs.org/docs/hooks-reference.html#usememo
     Memoization is essentially caching. The variable value will only be recalculated if the 
@@ -63,18 +64,18 @@ export const AuthProvider = ({ children }) => {
   const value = useMemo(
     () => ({
       userToken,
-			userEmail,
+	  userEmail,
       login,
       logout,
       register,
     }),
     [userToken]
   );
-  // children in this case refers to <App> #SEE index.js
+  //Children in this case refers to <App>
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-//this function makes the context of Auth accessible to other compoents 
+//Function makes the context of Auth accessible to other components
 export const useAuth = () => {
   return useContext(AuthContext);
 };
@@ -111,6 +112,7 @@ const loginUser = async (email, password) => {
   return responseJSON;
 };
 
+//Save token in the browser cache
 const setLSUserData = (token, email) => {
 
   // caching our token session/ email 
@@ -121,6 +123,7 @@ const setLSUserData = (token, email) => {
   );
 };
 
+//Remove token from browser cache
 const removeLSUserData = () => {
   //remove session from browser 
   localStorage.removeItem(process.env.REACT_APP_TOKEN_HEADER_KEY);

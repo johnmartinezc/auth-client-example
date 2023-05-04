@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GlobalLayout from "./Layouts/GlobalLayout";
 import HomePage from "./Pages/HomePage";
-import LoginPage from "./Pages/LoginPage";
-import RegistrationPage from "./Pages/RegistrationPage";
+import LoginPage from "./Pages/Login";
+import RegistrationPage from "./Pages/Registration";
 
 import './App.css';
 
 function App() {
-	const [userMessage, setUserMessage] = useState("")
 
 	//login and registration page
 
@@ -19,16 +17,18 @@ function App() {
 			children: [
 				{
 					index: true,
-					element: <HomePage />,
+					element: <HomePage />
 				},
+        
 				{
-					path: "login",
+					path: "Login",
 					element: <LoginPage />
 				},
 				{
-					path: "registration",
+					path: "Registration",
 					element: <RegistrationPage />
-				}
+				},
+        
 			],
 		},
 	]);

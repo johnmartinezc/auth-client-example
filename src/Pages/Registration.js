@@ -15,29 +15,31 @@ const RegistrationPage = (props) => {
     <div>
       <h1>Registration Page</h1>
       <h3>{registerMessage}</h3>
-      <label>email</label>
+      <label>Email:</label>
       <input
         type="text"
         onChange={(e) => {
           setEmail(e.target.value);
         }}
       />
-      <label>Password</label>
+			<br/>
+			<br/>
+
+      <label>Password:</label>
       <input
         type="password"
         onChange={(e) => {
           setPassword(e.target.value);
         }}
       />
+			<br/>
       <button
         onClick={async () => {
           const registerResult = await auth.register(email, password);
           if (registerResult.success) {
-						navigate("/login");
+						navigate("/Login");
           }
-          if (!registerResult.success) {
-            setRegisterMessage(registerResult.message);
-          }
+          
         }}
       >
         Signup

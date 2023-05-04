@@ -2,6 +2,58 @@
   text-align: center;
 }
 
+.Greeting{
+  color: rgb(3, 206, 30);
+}
+
+.navBarLink {
+  margin: 10px;
+}
+
+.blogsTitle{
+  color: rgb(3, 206, 30);
+}
+
+.blogSection{
+  padding-left: 10px;
+}
+
+.blogCard{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  margin: 10px;
+}
+
+.cardTitle{
+  font-size: 20px;
+  font-weight: bolder;
+  color: black;
+}
+.cardText{
+  font-size: 16px;
+  color: black;
+}
+
+.cardTextScroll { 
+  font-size: 14px;
+  color: black;
+  height: 420px; 
+  overflow-x: scroll; 
+  width: 100%; }
+
+.cardTextScroll p { 
+  width: 650px; 
+  word-break: break-word; }
+
+.navBar{
+  display: flex;
+  align-items: flex-start;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,8 +87,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-a {
-	color: white;
 }

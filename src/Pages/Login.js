@@ -12,21 +12,28 @@ const LoginPage = (props) => {
   return (
     <div>
       <h1>Login Page</h1>
+
       <h3>{loginMessage}</h3>
-      <label>email</label>
+
+      <label>Email:</label>
       <input
         type="text"
         onChange={(e) => {
           setEmail(e.target.value);
         }}
       />
-      <label>Password</label>
+			<br/>
+			<br/>
+
+      <label>Password:</label>
       <input
         type="password"
         onChange={(e) => {
           setPassword(e.target.value);
         }}
       />
+
+      <br/>
       <button
         onClick={async () => {
 
@@ -34,7 +41,7 @@ const LoginPage = (props) => {
           const loginResult = await auth.login(email, password);
 					console.log("button onclick loginResult: ", loginResult)
 					if (loginResult.success) {
-						navigate("/")
+						navigate("/HomePage")
 					}
           if (!loginResult.success) {
             setLoginMessage(loginResult.message)
