@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import userEvent from "@testing-library/user-event";
+import { useEffect, useReducer, useState } from "react";
 import { useAuth } from "../Hooks/Auth";
 
 const urlEndpoint = process.env.REACT_APP_URL_ENDPOINT
@@ -53,7 +54,7 @@ const HomePage = () => {
 		<div>
 			<h1>Home</h1>
             <p className="Greeting">Welcome</p>
-			{ message.length !== 0 && <p>Message: {message}</p>}
+			{ message.length !== 0 && <p>welcome : Admin :) </p>}
 		</div>
     )
 }
